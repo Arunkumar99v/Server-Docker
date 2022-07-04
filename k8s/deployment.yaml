@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: varun-microservice
+  name: varun-microservice
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: varun-microservice
+  template:
+    metadata:
+       labels:
+        app: varun-microservice
+    spec:
+      containers:
+      - image: spring-docker
+        imagePullPolicy: Always
+        name: varun-microservice
+        env:
+        - name: SPRING_DATA_MONGODB_HOST
+          value: mongodb.user-arunkumar.svc.cluster.local
+        - name: SPRING_DATA_MONGODB_PORT
+          value: "27017"
+        resources:
+          requests:
+            memory: 700Mi
+            cpu: 100m
+          limits:
+            memory: 700Mi
+            cpu: 1           
+        ports:
+        - containerPort: 9000
+          protocol: TCP

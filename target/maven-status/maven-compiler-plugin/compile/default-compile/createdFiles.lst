@@ -1,0 +1,8 @@
+com\axyya\example\controller\ServerController.class
+com\axyya\example\repository\ServerRepository.class
+com\axyya\example\service\ServerService.class
+com\axyya\example\service\ServerServiceImp.class
+com\axyya\example\dto\ServerDto.class
+com\axyya\example\entity\Server.class
+com\axyya\example\exception\NotFoundException.class
+com\axyya\example\UseCaseApplication.class

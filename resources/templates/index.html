@@ -1,0 +1,61 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+
+		
+		<link rel="stylesheet" 
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+			crossorigin="anonymous" />
+	</head>
+	
+	<body>
+		
+		<div class="container">
+		
+			<h2> <center> Server Details </center> </h2>
+			
+			<hr/>		
+			</form>
+			<a th:href="@{/showNewServerForm}" class="btn btn-primary">Add Server</a>
+			<br/><br/>
+			 <form th:action="@{/search}" method="get">    
+<input type="text" name="id" th:value=${id} size=50></input>   
+       
+<button type="submit" class="btn btn info" style="color:rgb(0, 128, 255)" >SearchByID</button> 
+</form>
+  <form th:action="@{/searchByname}" method="get">    
+      <input type="text" name="name" th:value=${name} size=50></input>   
+      <button type="submit" class="btn btn info"  style="color:rgb(0, 128, 255)">SearchByname </button> 
+     </form>      
+</table>    
+</form>  
+       
+        <table border="1" class="table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                 <th>ID</th>
+                    <th>Name</th>
+                    <th>Language</th>
+                    <th>Framework</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ser : ${server}">
+                 <td th:text="${ser.id}"></td>
+                    <td th:text="${ser.name}"></td>
+                    <td th:text="${ser.language}"></td>
+                    <td th:text="${ser.framework}"></td>  
+                    
+                    <td> <a th:href="@{/showUpdateForm(id=${ser.id})}" class="btn btn-info">Update</a>
+                        <a th:href="@{/deleteDetails/{id}(id=${ser.id})}" class="btn btn-danger">Delete</a>
+             
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div >
+</body>
+
+</html>
